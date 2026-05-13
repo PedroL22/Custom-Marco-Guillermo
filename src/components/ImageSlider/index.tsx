@@ -46,7 +46,7 @@ export default function ImageSlider({ Image1, Image2 }: SliderProps) {
     window.onmouseup = null
   }
 
-  const handleTouchMove = (event: TouchEvent<HTMLDivElement>): void => {
+  const handleTouchMove = (event: TouchEvent<HTMLButtonElement>): void => {
     slide(event.touches.item(0).clientX)
   }
 
@@ -70,14 +70,15 @@ export default function ImageSlider({ Image1, Image2 }: SliderProps) {
       className='relative mx-auto w-full max-w-lg select-none'
     >
       <div className='flex justify-start'>
-        <div
-          className='absolute top-72 z-10 h-20 w-1/2 bg-black opacity-70'
+        <button
+          type='button'
+          className='absolute top-72 z-10 h-20 w-1/2 border-0 bg-neutral-950/70 p-0'
           onClick={handleClickImage1}
         >
-          <h3 className='mt-3 cursor-pointer text-center text-white opacity-100 hover:underline'>
+          <h3 className='mt-3 cursor-pointer text-center text-white hover:underline'>
             Avant
           </h3>
-        </div>
+        </button>
         <Image
           src={Image2}
           alt=''
@@ -85,14 +86,15 @@ export default function ImageSlider({ Image1, Image2 }: SliderProps) {
         />
       </div>
       <div className='flex justify-end'>
-        <div
-          className='absolute top-72 z-10 h-20 w-1/2 bg-black opacity-70'
+        <button
+          type='button'
+          className='absolute top-72 z-10 h-20 w-1/2 border-0 bg-neutral-950/70 p-0'
           onClick={handleClickImage2}
         >
-          <h3 className='mt-3 cursor-pointer text-center text-white opacity-100 hover:underline'>
+          <h3 className='mt-3 cursor-pointer text-center text-white hover:underline'>
             Après
           </h3>
-        </div>
+        </button>
         <Image
           src={Image1}
           alt=''
@@ -113,17 +115,19 @@ export default function ImageSlider({ Image1, Image2 }: SliderProps) {
       >
         <div className='relative h-full'>
           <div className='absolute inset-y-0 -ml-px w-0.5 bg-white opacity-50'></div>
-          <div
+          <button
+            type='button'
+            aria-label='Déplacer le séparateur des images avant et après'
             onMouseDown={handleMouseDown}
             onTouchMove={handleTouchMove}
-            className='absolute top-1/2 -ml-6 -mt-6 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-xl'
+            className='absolute top-1/2 -ml-6 -mt-6 flex size-12 cursor-pointer items-center justify-center rounded-full border-0 bg-white p-0 shadow-xl'
             style={{ touchAction: 'none' }}
           >
             <HiSelector
               size={24}
-              className='rotate-90 transform text-gray-400'
+              className='rotate-90 transform text-neutral-400'
             />
-          </div>
+          </button>
         </div>
       </div>
     </div>

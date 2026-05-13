@@ -11,7 +11,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -35,12 +35,12 @@ export default function Header() {
               src={Logo}
               alt='logo'
               placeholder='blur'
-              className='mx-1 h-16 w-16 object-cover'
+              className='mx-1 size-16 object-cover'
             />
           </Link>
           <div className='-ml-[100vw] flex'>
             {isOpen ? (
-              <div className='flex h-screen w-screen flex-col bg-black text-center opacity-80'>
+              <div className='flex h-screen w-screen flex-col bg-neutral-950 text-center opacity-80'>
                 <div className='justify-between'>
                   <div />
                   <IoMdClose
@@ -112,7 +112,7 @@ export default function Header() {
               src={Logo}
               alt='logo'
               placeholder='blur'
-              className='mx-4 mt-2 h-28 w-28 object-cover'
+              className='mx-4 mt-2 size-28 object-cover'
             />
           </Link>
           <div className='flex px-10 py-12'>

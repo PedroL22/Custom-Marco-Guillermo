@@ -46,7 +46,7 @@ export default function Home() {
               className='mt-2 h-48 object-cover  sm:h-56 md:h-72 lg:h-80 lg:w-[27rem]'
             />
             <div className='text-center-bug lg:-mt-11 lg:text-left'>
-              <h2 className='pt-3 text-base font-bold sm:text-lg md:text-xl'>
+              <h2 className='pt-3 text-base font-semibold sm:text-lg md:text-xl'>
                 NOUS CRÉONS DES OPPORTUNITÉS POUR RENDRE DES ENVIRONNEMENTS
                 BEAUX ET SPECTACULAIRES
               </h2>
@@ -66,7 +66,7 @@ export default function Home() {
         <section className='bg-[#494947] p-6 sm:px-28 sm:py-16 md:px-32 md:py-20'>
           <div className='mx-auto w-80 sm:w-[28rem] md:w-[36rem] lg:flex lg:w-[55rem] lg:gap-10'>
             <div className='text-center-bug text-white lg:text-right'>
-              <h2 className='text-base font-bold sm:text-lg md:text-xl lg:pt-10'>
+              <h2 className='text-base font-semibold sm:text-lg md:text-xl lg:pt-10'>
                 MISSION
               </h2>
               <p className='text-sm sm:text-base md:text-lg'>
@@ -92,14 +92,14 @@ export default function Home() {
               className='mt-2 h-48 object-cover sm:h-56 md:h-72 lg:h-80 lg:w-[27rem]'
             />
             <div className='text-center-bug lg:text-left'>
-              <h2 className='pt-3 text-base font-bold sm:text-lg md:text-xl'>
+              <h2 className='pt-3 text-base font-semibold sm:text-lg md:text-xl'>
                 VISION
               </h2>
               <p className='text-sm sm:text-base md:text-lg'>
                 Devenir une entreprise leader dans notre segment dans la région
                 de Montréal, offrant aux gens inspiration, bien-être et joie.
               </p>
-              <h2 className='pt-3 text-base font-bold sm:text-lg md:text-xl'>
+              <h2 className='pt-3 text-base font-semibold sm:text-lg md:text-xl'>
                 VALEURS
               </h2>
               <p className='text-sm sm:text-base md:text-lg'>

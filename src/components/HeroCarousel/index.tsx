@@ -10,7 +10,7 @@ export default function HeroCarousel() {
     <div className='flex items-center justify-center'>
       <div className='absolute z-10'>
         <div className='relative flex flex-col'>
-          <h1 className='mx-[15vw] max-w-[900px] text-center text-lg font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'>
+          <h1 className='mx-[15vw] max-w-[900px] text-center text-lg font-semibold text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'>
             Services de RÉNOVATION RÉSIDENTIELLE
           </h1>
         </div>

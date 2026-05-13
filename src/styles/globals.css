@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .size-12 {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .size-16 {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .size-28 {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -21,7 +38,7 @@ html {
 
 /* Carousel arrows */
 .scrolled {
-  background-color: black;
+  background-color: #0a0a0a;
   opacity: 0.8;
   transition-property: all;
   transition-duration: 250ms;

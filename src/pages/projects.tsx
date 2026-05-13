@@ -63,7 +63,7 @@ export default function Projects() {
           href='/favicon.png'
         />
       </Head>
-      <div className='header fixed z-20 h-16 w-full bg-black font-sans md:h-32' />
+      <div className='header fixed z-20 h-16 w-full bg-neutral-950 font-sans md:h-32' />
       <ImageModal show={modal} />
       <div className='mx-auto flex min-h-screen max-w-5xl flex-col gap-3 px-3 pb-4 pt-24 md:grid md:grid-cols-2 md:pt-44'>
         <ImageSlider

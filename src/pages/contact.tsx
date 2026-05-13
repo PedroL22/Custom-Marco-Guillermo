@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import Head from 'next/head'
 import emailjs from 'emailjs-com'
 import { BsWhatsapp, BsFacebook } from 'react-icons/bs'
@@ -6,34 +6,23 @@ import { AiOutlinePhone } from 'react-icons/ai'
 import { AiOutlineMail } from 'react-icons/ai'
 
 export default function Contact() {
-  const [message, setMessage] = useState(false)
-
-  const form = useRef()
-  const sendEmail = (e: any) => {
+  const form = useRef<HTMLFormElement>(null)
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!form.current) {
+      return
+    }
+
     emailjs
       .sendForm(
         'service_p8f68rz',
         'template_ixeh0fe',
-        form.current as any,
+        form.current,
         '-xo0bQBMsXWq4CwN9'
       )
       .then()
-    e.target.reset()
-    setMessage(true)
-    setTimeout(() => {
-      setMessage(false)
-    }, 3000)
+    e.currentTarget.reset()
   }
-
-  useEffect(() => {
-    if (message) {
-      const timeout = setTimeout(() => {
-        setMessage(false)
-      }, 3000)
-      return () => clearTimeout(timeout)
-    }
-  }, [message])
 
   return (
     <div className='max-w-screen-3xl font-sans'>
@@ -60,7 +49,7 @@ export default function Contact() {
           href='/favicon.png'
         />
       </Head>
-      <div className='header fixed z-10 h-16 w-full bg-black font-sans md:h-32' />
+      <div className='header fixed z-10 h-16 w-full bg-neutral-950 font-sans md:h-32' />
       <div className='flex min-h-[90vh]'>
         <div className='mx-auto gap-11 pt-24 md:flex md:pt-44'>
           <div className='max-w-xs'>
@@ -69,50 +58,72 @@ export default function Contact() {
               projet.
             </h2>
             <form
-              ref={form as any}
+              ref={form}
               onSubmit={sendEmail}
               className='flex max-w-sm flex-col'
             >
-              <label className='flex gap-2'>
+              <div className='flex gap-2'>
+                <label
+                  className='sr-only'
+                  htmlFor='name'
+                >
+                  Name
+                </label>
                 <input
-                  className='my-1 max-w-[49%] rounded border-[1px] bg-gray-200 px-3 py-3 outline-none focus:border-gray-400'
+                  className='my-1 max-w-[49%] rounded border-[1px] bg-neutral-200 p-3 outline-none focus:border-neutral-400'
                   id='name'
                   type='text'
                   placeholder='Name'
                   name='name'
                   required
                 />
+                <label
+                  className='sr-only'
+                  htmlFor='email'
+                >
+                  Email Address
+                </label>
                 <input
-                  className='my-1 max-w-[49%] rounded border-[1px] bg-gray-200 px-3 py-3 outline-none focus:border-gray-400'
+                  className='my-1 max-w-[49%] rounded border-[1px] bg-neutral-200 p-3 outline-none focus:border-neutral-400'
                   id='email'
                   type='email'
                   placeholder='Email Address'
                   name='email'
                   required
                 />
+              </div>
+              <label
+                className='sr-only'
+                htmlFor='subject'
+              >
+                Subject
               </label>
-              <label>
-                <input
-                  className='my-1 block w-full rounded border-[1px] bg-gray-200 px-3 py-3 outline-none focus:border-gray-400'
-                  id='subject'
-                  type='text'
-                  placeholder='Subject'
-                  name='subject'
-                  required
-                />
-                <textarea
-                  className='my-1 w-full resize-none rounded border-[1px] bg-gray-200 px-3 py-3 outline-none focus:border-gray-400'
-                  id='message'
-                  placeholder='Message'
-                  name='message'
-                  required
-                />
+              <input
+                className='my-1 block w-full rounded border-[1px] bg-neutral-200 p-3 outline-none focus:border-neutral-400'
+                id='subject'
+                type='text'
+                placeholder='Subject'
+                name='subject'
+                required
+              />
+              <label
+                className='sr-only'
+                htmlFor='message'
+              >
+                Message
               </label>
+              <textarea
+                className='my-1 w-full resize-none rounded border-[1px] bg-neutral-200 p-3 outline-none focus:border-neutral-400'
+                id='message'
+                placeholder='Message'
+                name='message'
+                required
+              />
               <button
                 className='duration-250 my-1 rounded bg-orange-500 py-2 font-semibold text-white transition-all ease-in hover:bg-orange-600 active:bg-orange-700'
                 type='submit'
               >
-                Submit
+                Envoyer le message
               </button>
             </form>
           </div>
